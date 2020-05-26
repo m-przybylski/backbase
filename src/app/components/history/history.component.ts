@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { Observable, Subject } from 'rxjs';
 import { Transfer } from 'src/app/services/data';
@@ -23,8 +23,9 @@ import { takeUntil, debounceTime } from 'rxjs/operators';
           <button class="clear" (click)="clearFilter()">X</button>
         </div>
         <div class="filters__sort">
-          <span>Sort by</span>
+          <span class="button-group-label">Sort by</span>
           <div class="sort-button-group">
+            <button (click)="sortBy('transactionDate')">Date</button>
             <button (click)="sortBy('merchant')">Beneficiary</button>
             <button (click)="sortBy('amount')">Amount</button>
           </div>

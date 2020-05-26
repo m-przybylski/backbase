@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { TransactionsService } from 'src/app/services/transactions.service';
+import { TransactionType } from 'src/app/services/data';
+import yoda from './yoda';
 
 @Component({
   selector: 'app-transaction',
@@ -56,10 +58,14 @@ export class TransactionComponent implements OnInit {
   public ngOnInit(): void {}
 
   public makeTransfer(): void {
+    const amount = Number.parseFloat(Number.parseFloat(this.form.value.amount).toFixed(2));
     this.transactionsService.addTransfer({
-      merchant: 'some merchant',
-      categoryCode: '',
-      amount: this.form.value.amount,
+      merchant: this.form.value.to,
+      merchantLogo: yoda,
+      categoryCode: '#12a580',
+      amount,
+      transactionDate: new Date(),
+      transactionType: TransactionType.ONLINE_TRANSFER
     });
     this.form.setValue({
       from: 'Checking(4240) - $5763.43',

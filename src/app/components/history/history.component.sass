@@ -30,14 +30,22 @@ $padding: 10px
 .filters
   margin: 0 0 $padding 0
 
+  +desktop
+    display: flex
+    justify-content: space-between
+
   &__search
     display: flex
     flex-direction: row
     width: 100%
     margin: 0 0 $padding 0
 
+    +desktop
+      width: auto
+
     input
       flex: 1 0 0
+
   &__sort
     display: flex
     justify-content: space-between
@@ -46,7 +54,10 @@ $padding: 10px
     background: transparent
     border: 1px solid $divider
     font-family: Kanit
-    font-size: 12px
+    font-size: 14px
 
   button.clear
     border: 0px solid transparent
+
+.button-group-label
+  margin: 0 12px 0 0

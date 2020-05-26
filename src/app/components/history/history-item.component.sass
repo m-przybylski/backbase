@@ -5,30 +5,93 @@
   justify-content: space-between
   border: 1px solid $divider
   padding: 8px 10px
+  box-sizing: border-box
+  position: relative
 
   +desktop
     justify-content: space-between
 
 
-  &__name
+  &__details
     display: flex
-    align-items: center
-    justify-content: center
+    width: 100%
     +desktop
-      flex: 0 0 0
+      display: none
 
+    &--desktop
 
-  &__amount
-    display: flex
-    flex-direction: column
-    align-items: flex-end
+      display: none
 
-    & > span
-      flex: 1 0 0
-      text-align: right
+      +desktop
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
 
-    +desktop
-      flex: 1 0 0
-      flex-direction: row
+        .segment--desktop
+          display: flex
+          flex-direction: column
+          align-items: flex-start
+
+        .segment
+          display: flex
+          flex: 1 0 0
+          align-items: center
+          > *
+            margin: 0 8px 0 0
+
+          .image-wrapper
+            display: flex
+
+    .segment
+      display: flex
+      flex-direction: column
+      justify-content: center
       align-items: center
-      justify-content: space-between
+      margin: 0 8px 0 0
+      flex: 1 0 0
+
+      &:last-child
+        margin: 0
+
+      +desktop
+        flex-direction: row
+        justify-content: space-between
+
+    .segment-right
+      @extend .segment
+      align-items: flex-end
+      flex: 2 0 0
+
+
+  .name, .amount
+    text-align: right
+  // &__name
+  //   display: flex
+  //   align-items: center
+  //   justify-content: center
+  //   +desktop
+  //     flex: 0 0 0
+
+  // &__amount
+  //   display: flex
+  //   flex-direction: column
+  //   align-items: flex-end
+
+  //   & > span
+  //     flex: 1 0 0
+  //     text-align: right
+
+  //   +desktop
+  //     flex: 1 0 0
+  //     flex-direction: row
+  //     align-items: center
+  //     justify-content: space-between
+
+.history-category
+  position: absolute
+  // top border
+  top: -1px
+  bottom: 0
+  // bottom border
+  left: -1px

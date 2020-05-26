@@ -22,13 +22,9 @@ I was not able to fully covered all user stories.
 ```
 Filtering is performed with debounce time. Once user stops typing application after 200ms performs search. I strongly believe the is better user experience and preserves valuable client and server resources.
 ```
-4. Sort the transactions list by Date, Beneficiary and Amount.
-```
-There is no date column in transactions.json file, so i decided to ditch the column. It is possible to "enhance" the data with some middleware.
-```
 - The Sorting order (ascending/descending) should be persistent across all sorting options
 ```
-I did not create provide descending ordering, and you can order only by one column at the time.
+I did not create provide descending ordering, and you can sort only by one column at the time.
 
 ## Additional features
 
