@@ -1,0 +1,22 @@
+@import '../../styles'
+
+.message
+  position: fixed
+  bottom: 10px
+  left: 10px
+  border: 2px solid black
+  border-radius: 5px 5px 0 0
+
+  &__element
+    padding: 16px 12px
+    white-space: nowrap
+
+  &--success
+    border-color: $success
+    background: $success
+    color: $text
+
+  &--error
+    border-color: $alert
+    background: $alert
+    color: $text

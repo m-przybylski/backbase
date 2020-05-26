@@ -1,0 +1,43 @@
+@import '../../styles'
+
+$padding: 10px
+
+.transaction-header
+  background: $primary
+  color: $primary-contrast
+  text-align: center
+  padding: .25em 0
+  position: relative
+
+.icon
+  display: inline-block
+  position: absolute
+  left: $padding
+  top: 50%
+  transform: translate3d(0px, -50%, 0px)
+  color: $primary-contrast
+
+  & path
+    fill: currentcolor
+
+.transaction-body
+  padding: $padding
+  background: $background
+
+.form-field
+  margin: 0 0 8px 0
+
+.button-row
+  display: flex
+  justify-content: flex-end
+
+  button
+    border: 0px solid transparent
+    background: $accent
+    color: $accent-contrast
+    padding: 8px 50px
+    font-family: Kanit
+    border-radius: 5px
+
+    &[disabled]
+      opacity: 50%

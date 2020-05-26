@@ -1,0 +1,44 @@
+@import '../../styles'
+
+$padding: 10px
+
+.history-header
+  background: $primary
+  color: $primary-contrast
+  text-align: center
+  padding: .25em 0
+  position: relative
+
+.icon
+  display: inline-block
+  position: absolute
+  left: $padding
+  top: 50%
+  transform: translate3d(0px, -50%, 0px)
+  color: $primary-contrast
+
+  &__path
+    fill: currentcolor
+
+.history-filters
+  padding: $padding
+
+.history-data
+  background: $background
+  padding: $padding
+
+.filters
+  margin: 0 0 $padding 0
+
+  &__search
+    margin: 0 0 $padding 0
+
+  &__sort
+    display: flex
+    justify-content: space-between
+
+  button
+    background: transparent
+    border: 1px solid $divider
+    font-family: Kanit
+    font-size: 12px

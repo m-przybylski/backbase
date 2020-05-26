@@ -1,0 +1,73 @@
+@import 'styles'
+
+$header-height: 100px
+
+:host
+  display: block
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-image: url('../assets/background.jpg')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  padding: 0 $app-margin
+
+  +tablet
+    padding: 0 $app-margin-tablet
+
+  +desktop
+    padding: 0 $app-margin-desktop
+
+header
+  height: $header-height
+  display: flex
+  align-items: center
+  border-bottom: 2px solid $accent
+  background: $background
+  margin: 0 #{-$app-margin}
+  padding: 0 $app-margin
+  background-image: url('../assets/logo.jpg')
+  background-repeat: no-repeat
+  background-position-y: center
+  background-size: contain
+  background-origin: content-box
+
+  +tablet
+    margin: 0 #{-$app-margin-tablet}
+    padding: 0 $app-margin-tablet
+    background-size: 50%
+
+  +desktop
+    margin: 0 #{-$app-margin-desktop}
+    padding: 0 $app-margin-desktop
+
+.page-layout
+  display: flex
+  flex-direction: column
+  box-sizing: border-box
+  margin: 0 #{-$app-margin}
+  padding: $app-margin
+  height: calc( 100% - #{$header-height} )
+  overflow: auto
+
+  +tablet
+    flex-direction: row
+    margin: 0 #{-$app-margin-tablet}
+    padding: $app-margin-tablet
+
+  +desktop
+    flex-direction: row
+    margin: 0 #{-$app-margin-desktop}
+    padding: $app-margin-desktop
+
+app-history
+  flex-grow: 1
+
+app-transaction
+  margin: 0 0 $app-margin 0
+  +tablet
+    margin: 0 $app-margin-tablet 0 0
+

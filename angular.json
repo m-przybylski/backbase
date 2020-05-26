@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "backbase"
+    }
+  },
+  "defaultProject": "backbase",
+  "cli": {
+    "analytics": false
+  }
 }
