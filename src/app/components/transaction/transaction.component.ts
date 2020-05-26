@@ -20,11 +20,17 @@ import { TransactionsService } from 'src/app/services/transactions.service';
       <div class="form-field">
         <label>to account</label>
         <input formControlName="to" type="text" />
+        <div class="error" *ngIf="form.controls.to.touched && form.controls.to.errors?.required">
+          Field is required!
+        </div>
       </div>
       <div class="form-field">
         <label>Amount</label>
         <span>$ <input formControlName="amount" type="number" /></span>
-        <div class="error" *ngIf="form.controls.amount.touched && (form.controls.amount.errors?.min || form.controls.amount.errors?.max)">
+        <div
+          class="error"
+          *ngIf="form.controls.amount.touched && (form.controls.amount.errors?.min || form.controls.amount.errors?.max)"
+        >
           Invalid amount. Please specify amount between 0 and 500
         </div>
         <div class="error" *ngIf="form.controls.amount.touched && form.controls.amount.errors?.required">
@@ -32,7 +38,7 @@ import { TransactionsService } from 'src/app/services/transactions.service';
         </div>
       </div>
       <div class="button-row">
-        <button type="submit" [disabled]="form.controls.amount.errors" (click)="makeTransfer()">Submit</button>
+        <button [disabled]="form.controls.amount.errors || form.controls.to.errors" (click)="makeTransfer()">Submit</button>
       </div>
     </div> `,
   styleUrls: ['./transaction.component.sass'],
@@ -40,13 +46,11 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 export class TransactionComponent implements OnInit {
   public form: FormGroup;
   constructor(private readonly transactionsService: TransactionsService) {
-    this.form = new FormGroup(
-      {
-        from: new FormControl(''),
-        to: new FormControl(''),
-        amount: new FormControl('', [Validators.required, Validators.min(0), Validators.max(500)]),
-      }
-    );
+    this.form = new FormGroup({
+      from: new FormControl({ value: 'Checking(4240) - $5763.43', disabled: true }, [Validators.required]),
+      to: new FormControl('', [Validators.required]),
+      amount: new FormControl('', [Validators.required, Validators.min(0), Validators.max(500)]),
+    });
   }
 
   public ngOnInit(): void {}
@@ -58,7 +62,7 @@ export class TransactionComponent implements OnInit {
       amount: this.form.value.amount,
     });
     this.form.setValue({
-      from: '',
+      from: 'Checking(4240) - $5763.43',
       to: '',
       amount: '',
     });

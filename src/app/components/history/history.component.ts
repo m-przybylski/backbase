@@ -20,6 +20,7 @@ import { takeUntil, debounceTime } from 'rxjs/operators';
       <div class="filters">
         <div class="form-field filters__search">
           <input [formControl]="searchFormControl" type="text" placeholder="Search by typing..." />
+          <button class="clear" (click)="clearFilter()">X</button>
         </div>
         <div class="filters__sort">
           <span>Sort by</span>
@@ -55,6 +56,10 @@ export class HistoryComponent implements OnInit, OnDestroy {
     ).subscribe(searchText => {
       this.transactions.searchBy(searchText);
     });
+  }
+
+  public clearFilter(): void {
+    this.searchFormControl.setValue('', {emitViewToModelChange: true});
   }
 
   public ngOnDestroy(): void {

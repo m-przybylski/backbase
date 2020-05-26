@@ -3,7 +3,7 @@ import { Transfer } from 'src/app/services/data';
 
 @Component({
   selector: 'app-history-item',
-  template: `<div class="history-item">
+  template: `<div class="history-item" [ngStyle]="{'border-left': borderStyle()}">
     <div class="history-item__name">
       <img width="40px" height="40px" [src]="transfer.merchantLogo"/>
     </div>
@@ -16,4 +16,7 @@ import { Transfer } from 'src/app/services/data';
 })
 export class HistoryItemComponent {
   @Input() public transfer: Transfer;
+  public borderStyle(): string {
+    return `4px solid ${this.transfer.categoryCode}`;
+  }
 }

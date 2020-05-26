@@ -31,8 +31,13 @@ $padding: 10px
   margin: 0 0 $padding 0
 
   &__search
+    display: flex
+    flex-direction: row
+    width: 100%
     margin: 0 0 $padding 0
 
+    input
+      flex: 1 0 0
   &__sort
     display: flex
     justify-content: space-between
@@ -42,3 +47,6 @@ $padding: 10px
     border: 1px solid $divider
     font-family: Kanit
     font-size: 12px
+
+  button.clear
+    border: 0px solid transparent
